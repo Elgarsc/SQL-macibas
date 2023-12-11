@@ -1,0 +1,5 @@
+INSERT INTO employees
+VALUES (2, "Squidward", "Tentacles", 15.00, "2023-01-03"),
+	(3, "Spongebob", "Squarepants", 15.50, "2023-01-04"),
+    (3, "Patrick", "Star", 12.50, "2023-01-05"), 
+    (5, "Sandy", "Cheeks", 17.50, "2023-01-05");
