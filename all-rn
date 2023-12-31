@@ -1,0 +1,92 @@
+
+\CREATE
+
+create table customers(
+	customer_id int primary key auto_increment,
+	first_name varchar(25), 
+	last_name varchar(25),
+	hire_date date
+);
+
+\INSERT
+
+insert into customers (first_name, last_name)
+values 	("Karlis", "Zarins"),
+	("Anna", "Loba"),
+        	("Burbulis", "Ozols");
+select * from customers;
+
+\FOREIGN KEY
+
+create table transactions (
+	transaction_id int primary key auto_increment,
+	amount decimal (5, 2), 
+	customer_id int, 
+    foreign key (customer_id) references customers(customer_id)
+);
+
+\ALTER
+
+alter table transactions
+drop foreign key transaction_id;
+
+\
+
+alter table transactions
+add constraint key_customer_id
+foreign key (customer_id) references customers(customer_id);
+
+\INSERT
+insert into customers (first_name, last_name)
+values ("Janis", "Berzins");
+select * from customers;
+
+\SELECT
+
+select * from transactions inner join customers
+on transactions.customer_id = customers.customer_id;
+   
+\UPDATE
+
+update employees
+set job = "cook"
+where employee_id = 3;
+select * from employees;
+
+\OPERATORS
+
+select *
+from employees 
+where hire_date < "2023-01-04";
+
+\WILD_CARDS
+
+select * from employees 
+where first_name like "A%";
+
+\
+
+select * from employees 
+where first_name like "_anis";
+
+\ORDER
+
+select * from employees
+order by last_name asc;
+
+\LIMIT
+
+select * from customers
+limit 2;
+
+\UNION
+
+select * from table1
+UNION
+select * from table2;
+
+\UNION ALL(allow duplicates)
+
+select * from table1
+UNION ALL
+select * from table2;
